@@ -38,17 +38,27 @@ public class FakePhoneActivity extends AppCompatActivity {
         btn_del.setOnClickListener(new View.OnClickListener() {//button listener for every number
             @Override
             public void onClick(View view) {
-                //delNumber();
+                delNumber();
             }
         });
     }
 
     private void addNumber(View Vi){
-        Button b = (Button)Vi;
-        String buttonText = b.getText().toString();
-        num = num+buttonText;
-        numText.setText(num);
+        if (num.length() <= 9){//si l'string és inferior a 9 caràcters (numeros)
+            Button b = (Button)Vi;
+            String buttonText = b.getText().toString();
+            num = num+buttonText;
+            numText.setText(num);
+        }else{
+            Toast.makeText(this, "Can't add more numbers!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-
+    private void delNumber(){
+        if (num != null && num.length() > 0) {//comprovem que sigui correcta
+            num = num.substring(0, num.length() - 1);
+            numText.setText(num);
+        }
+    }
 }
