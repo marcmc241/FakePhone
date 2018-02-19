@@ -12,9 +12,7 @@ public class FakePhoneActivity extends AppCompatActivity {
 
     private TextView numText;
     private String num = "";
-    private ImageButton btn_del;
-    private Button btn_call;
-    int[] buttonIDs = new int[] {R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9, R.id.btn_0};
+    int[] buttonIDs = new int[] {R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9, R.id.btn_0};//array with all button_number ids
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +33,16 @@ public class FakePhoneActivity extends AppCompatActivity {
 
         }
 
-        btn_del = (ImageButton) findViewById(R.id.btn_del);
-        btn_del.setOnClickListener(new View.OnClickListener() {//button listener for every number
+        ImageButton btn_del = (ImageButton) findViewById(R.id.btn_del);
+        btn_del.setOnClickListener(new View.OnClickListener() {//button listener for delete button
             @Override
             public void onClick(View view) {
                 delNumber();
             }
         });
 
-        btn_call = (Button) findViewById(R.id.btn_call);
-        btn_call.setOnClickListener(new View.OnClickListener() {//button listener for every number
+        Button btn_call = (Button) findViewById(R.id.btn_call);
+        btn_call.setOnClickListener(new View.OnClickListener() {//button listener for call button
             @Override
             public void onClick(View view) {
                 call();
@@ -53,11 +51,11 @@ public class FakePhoneActivity extends AppCompatActivity {
     }
 
     private void addNumber(View Vi){
-        if (num.length() <= 9){//si l'string és inferior a 9 caràcters (numeros)
+        if (num.length() < 9){//si l'string és inferior a 9 caràcters (numeros)
             Button b = (Button)Vi;
-            String buttonText = b.getText().toString();
-            num = num+buttonText;
-            numText.setText(num);
+            String buttonText = b.getText().toString();//agafem el text del botó
+            num = num+buttonText;//afegim el text a l'string num
+            numText.setText(num);//mostrem el text
         }else{
             Toast.makeText(this, "Can't add more numbers!", Toast.LENGTH_SHORT).show();
         }
@@ -65,9 +63,9 @@ public class FakePhoneActivity extends AppCompatActivity {
     }
 
     private void delNumber(){
-        if (num != null && num.length() > 0) {//comprovem que sigui correcta
-            num = num.substring(0, num.length() - 1);
-            numText.setText(num);
+        if (num != null && num.length() > 0) {//comprovem que contingui alguna cosa
+            num = num.substring(0, num.length() - 1);//eliminem l'últim caràcter
+            numText.setText(num);//mostrem el text
         }
     }
 
