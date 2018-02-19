@@ -13,6 +13,7 @@ public class FakePhoneActivity extends AppCompatActivity {
     private TextView numText;
     private String num = "";
     private ImageButton btn_del;
+    private Button btn_call;
     int[] buttonIDs = new int[] {R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9, R.id.btn_0};
 
     @Override
@@ -41,6 +42,14 @@ public class FakePhoneActivity extends AppCompatActivity {
                 delNumber();
             }
         });
+
+        btn_call = (Button) findViewById(R.id.btn_call);
+        btn_call.setOnClickListener(new View.OnClickListener() {//button listener for every number
+            @Override
+            public void onClick(View view) {
+                call();
+            }
+        });
     }
 
     private void addNumber(View Vi){
@@ -60,5 +69,9 @@ public class FakePhoneActivity extends AppCompatActivity {
             num = num.substring(0, num.length() - 1);
             numText.setText(num);
         }
+    }
+
+    private void call(){
+        Toast.makeText(this, "Calling "+num, Toast.LENGTH_SHORT).show();
     }
 }
