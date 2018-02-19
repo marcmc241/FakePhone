@@ -7,6 +7,7 @@
     tools:context="com.fakephone.marcmc6.fakephone.FakePhoneActivity">
 
     <TextView
+        android:id="@+id/numText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -16,15 +17,15 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="35dp"
         android:text=""
-        android:id="@+id/textView" />
+        tools:ignore="InvalidId" />
 
     <Button
         android:id="@+id/btn_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/numText"
+        android:layout_alignStart="@+id/numText"
+        android:layout_below="@+id/numText"
         android:layout_marginTop="68dp"
         android:text="@string/btn_1"
         tools:text="1" />
@@ -124,7 +125,7 @@
         android:text="@string/btn_0" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btn_del"
         style="@android:style/Widget.DeviceDefault.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,9 +140,9 @@
         android:id="@+id/btn_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/imageButton"
+        android:layout_alignEnd="@+id/btn_del"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignRight="@+id/btn_del"
         android:layout_marginBottom="16dp"
         android:text="@string/call_btn" />
 
